@@ -1,0 +1,8 @@
+eyed3==0.9.7
+Flask==3.0.3
+moviepy==1.0.3
+Pillow==11.0.0
+python-dotenv==1.0.1
+pytube==15.0.0
+Requests==2.32.3
+setuptools==69.1.0

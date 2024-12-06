@@ -1,0 +1,22 @@
+{
+  "name": "nw-invoke",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Nikola",
+  "license": "ISC",
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "colors": "^1.4.0",
+    "key-events": "^0.1.1",
+    "keypress": "^0.2.1",
+    "keystroke.js": "^0.0.9",
+    "node-gyp": "^8.4.1",
+    "node-watch": "^0.7.3",
+    "robotjs": "^0.6.0",
+    "sys": "^0.0.1"
+  }
+}

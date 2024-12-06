@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block body %} 
+
+{% from "macros.html" import navbar with context %}
+{% if data.images %}
+{{ navbar(data.display_name , data.images[0].url) }}
+{% else %}
+{{ navbar(data.display_name) }}
+{% endif %}
+<main>
+{% if result %}
+{% for result_type in result %}
+    <section class="{{ result_type }}">
+    {% if result_type == 'tracks' %}
+        {% from "macros.html" import make_track with context %}
+        {{ make_track(result[result_type]) }}
+    {% elif result_type == 'artists' %}
+        {% from "macros.html" import make_artist with context %}
+        {{ make_artist(result[result_type]) }}
+    {% elif result_type == 'albums' %}
+        {% from "macros.html" import make_album with context %}
+        {{ make_album(result[result_type]) }}
+    {% elif result_type == 'playlist' %}
+        {% from "macros.html" import make_playlist with context %}
+        {{ make_playlist(result[result_type]) }}
+    {% elif result_type == 'liked' %}
+        {% from "macros.html" import make_liked with context %}
+        {{ make_liked(result[result_type]) }}
+    {% endif %}
+    </section>
+{% endfor %}
+{% endif %}
+</main>
+<script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
